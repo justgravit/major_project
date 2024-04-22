@@ -5,4 +5,5 @@ module.exports = () => {
  mongoose.connect(
     process.env.DATABASE
   )
+  console.log("DB Connected!");
 }

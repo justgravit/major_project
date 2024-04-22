@@ -18,6 +18,7 @@ router.post('/login', (req, res) => {
        })
 })
 router.post('/register', (req, res) => {
+  console.log("IN reg");
   const { name, email, password } = req.body
   User.findOne({ email: email }, (err, user) => {
     if (user) {
@@ -33,6 +34,7 @@ router.post('/register', (req, res) => {
           res.send(err)
         } else {
           res.send({ message: 'Successfully Registered' })
+          console.log("Registered US");
         }
       })
     }
