@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { local_url } from "../../constant";
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -17,7 +18,7 @@ export const Register = () => {
     const { name, email, password, reEnterPassword } = user;
     if (name && email && password && password === reEnterPassword) {
       axios
-        .post("http://localhost:3755/register", user)
+        .post(`${local_url}/register`, user)
         .then((res) => {
           toast("Successfully Registered", {
             type: "success",

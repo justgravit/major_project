@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import axios from "axios";
+import { local_url } from "../../constant.js";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -31,9 +32,9 @@ export const Login = () => {
 
   const login = () => {
     axios
-      .post("https://localhost:3755/login", user)
+      .post(`${local_url}/login`, user)
       .then((res) => {
-        if (res.data.user.email == "sudhirchavhan100@gmail.com") {
+        if (res.data.user.email == "garvit@usa.com") {
           dispatch(loginAdminId(res.data.user._id));
           dispatch(loginAdminName(res.data.user.name));
           toast(`Welcome Admin ${res.data.user.name}`, {
