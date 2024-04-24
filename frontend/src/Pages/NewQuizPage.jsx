@@ -54,7 +54,7 @@ export const NewQuizPage = () => {
                   <div className="flex w-11/12">
                     <div className="w-40">
                       <p className="text-xl font-normal  pl-1">
-                        Question {index + 1})
+                        Question {index + 1}
                       </p>
                     </div>
                     <div className="w-10/12 -ml-10">
@@ -64,7 +64,7 @@ export const NewQuizPage = () => {
                   {el?.answer[0]?.map((e, index) => {
                     return (
                       <div className="flex ml-32">
-                        <p className="mr-2">{index + 1})</p>
+                        <p className="mr-2">{index + 1}</p>
                         <div
                           className="cursor-pointer hoverOption"
                           onClick={() => handleAnswer(index, e, el)}

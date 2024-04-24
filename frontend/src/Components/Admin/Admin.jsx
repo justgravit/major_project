@@ -121,7 +121,7 @@ export const Admin = () => {
         </div>
         <div className="w-5/12 p-16 ml-24">
           <img
-            src="./sudhir.jpg"
+            src="./admin_photu.png"
             alt="admin"
             className="h-[300px] w-[300px] rounded-full "
           />

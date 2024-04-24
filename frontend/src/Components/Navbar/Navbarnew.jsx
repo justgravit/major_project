@@ -18,8 +18,8 @@ export const Navbarnew = () => {
         type: "success",
       });
     }
-    if (adminName == "Sudhir P Chavhan") {
-      toast(`Sudhir P Chavhan Successfully Logout `, {
+    if (adminName == "adminbhai") {
+      toast(`Admin Successfully Logout `, {
         type: "success",
       });
       dispatch(Logouthandleraction());

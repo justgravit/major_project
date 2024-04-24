@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     name: String,
     email: String,
     password: String,
-    Points:Number,
+    Points: Number,
     quizAttempted: [quizAttemptedSchema],
   })
   const User = new mongoose.model('User', userSchema)

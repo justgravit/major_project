@@ -33,7 +33,7 @@ console.log("data",data)
             {/* <video className="w-full" src="./businessanalysis.mp4" /> */}
           </div>
           <div className="flex w-4/5 pl-24 ml-12">
-            <h1 className="text-2xl m-2 text-black-400/25">{num + 1})</h1>
+            <h1 className="text-2xl m-2 text-black-400/25">{num + 1}</h1>
             <h1 className="text-2xl m-2 text-black-400/25">
               {questionArr[num]?.questions}
             </h1>

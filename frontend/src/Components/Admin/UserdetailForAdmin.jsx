@@ -41,7 +41,7 @@ export const UserdetailForAdmin = (props) => {
                       </a>
                     </div>
                     <div class="flex-1 pl-1">
-                      <div class="font-medium dark:text-white">{e.name}</div>
+                      <div class="font-medium dark:text-white">{e.name}, {e.Points}</div>
                       <div class="text-gray-600 dark:text-gray-200 text-sm">
                         {e.email}
                       </div>
