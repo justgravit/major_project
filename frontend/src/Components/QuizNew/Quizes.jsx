@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getQuiz } from "../../Redux/action.js";
 import { Quiz } from "./Quiz";
+import QuizNavigate from "./QuizNavigate.jsx";
 
 export const Quizes = () => {
   const singleQuiz = useSelector((state) => state?.mernQuize.QuizData);
@@ -11,6 +12,7 @@ export const Quizes = () => {
   const dispatch = useDispatch();
   const [isLoading, setLoading] = useState(true);
   const questionArr = singleQuiz[0]?.questionArray;
+  const [num, setNum] = useState(0);
   useEffect(() => {
     dispatch(getQuiz(params));
   }, []);
@@ -27,7 +29,10 @@ export const Quizes = () => {
         src="https://embed.lottiefiles.com/animation/9844"
       ></iframe>
     </div>
-  ) : (
-    <Quiz questionArr={questionArr} />
+  ) : (   
+    <>
+    <Quiz questionArr={questionArr}  num={num} setNum={setNum} />
+    { questionArr && <QuizNavigate questionArr={questionArr} num={num} setNum={setNum} />}
+    </>
   );
 };

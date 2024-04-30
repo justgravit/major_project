@@ -6,8 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { postQuizResult, postUserResult } from "../../Redux/action.js";
 import { Link } from "react-router-dom";
 
-export const Quiz = (props) => {
-  const questionArr = props.questionArr;
+export const Quiz = ({questionArr,num,setNum}) => {
+ 
+  const qsnSize=questionArr.length;
   const data = useSelector((state) => state?.mernQuize?.QuizData);
   const result = useSelector((state) => state?.mernQuize?.result);
   const userID = useSelector((state) => state?.mernQuize?.userId);
@@ -15,10 +16,16 @@ console.log("data",data)
   const quizID = data[0]._id;
   const dispatch = useDispatch();
 
-  const [num, setNum] = useState(0);
+
   const [ans, setAns] = useState([]);
   const [btnshow, setBtnshow] = useState(false);
   const [disable, setDisable] = useState(null);
+  let ansCpy=[];
+  useEffect(()=>{
+  for(let i=0;i<qsnSize;i++){
+    ansCpy.push('NA');
+  }
+  },[]);
   const handleQue = (index) => {
     setDisable(index);
   };
@@ -57,7 +64,9 @@ console.log("data",data)
                   : `notshow border border-gray-300 text-center cursor-pointer m-2 p-2 rounded-lg`
               }
               onClick={(e) => {
-                setAns([...ans, answer.option]);
+                
+                ansCpy[num]=answer.option;
+                setAns(ansCpy);
 
                 handleQue(index);
               }}
