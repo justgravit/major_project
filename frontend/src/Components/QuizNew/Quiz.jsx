@@ -6,28 +6,35 @@ import { useDispatch, useSelector } from "react-redux";
 import { postQuizResult, postUserResult } from "../../Redux/action.js";
 import { Link } from "react-router-dom";
 
-export const Quiz = ({questionArr,num,setNum}) => {
- 
-  const qsnSize=questionArr.length;
+export const Quiz = ({ questionArr, num, setNum , set_idx, sel_idx}) => {
+
+  const qsnSize = questionArr.length;
   const data = useSelector((state) => state?.mernQuize?.QuizData);
   const result = useSelector((state) => state?.mernQuize?.result);
   const userID = useSelector((state) => state?.mernQuize?.userId);
-console.log("data",data)
+  console.log("data", data)
   const quizID = data[0]._id;
   const dispatch = useDispatch();
-
+  
 
   const [ans, setAns] = useState([]);
   const [btnshow, setBtnshow] = useState(false);
   const [disable, setDisable] = useState(null);
-  let ansCpy=[];
-  useEffect(()=>{
-  for(let i=0;i<qsnSize;i++){
-    ansCpy.push('NA');
-  }
-  },[]);
+  let ansCpy = [];
+  let idxcpy = [];
+
+  useEffect(() => {
+    for (let i = 0; i < qsnSize; i++) {
+      ansCpy.push('NA');
+      idxcpy.push('NA');
+    }
+    set_idx(idxcpy);
+  }, []);
+
   const handleQue = (index) => {
-    setDisable(index);
+    idxcpy = sel_idx;
+    idxcpy[num] = index;
+    set_idx(idxcpy);
   };
 
   return (
@@ -59,13 +66,13 @@ console.log("data",data)
             <li
               key={index}
               className={
-                index == disable && disable != null
+                sel_idx[num] != 'NA' && index == sel_idx[num]
                   ? "show border border-gray-300 text-center cursor-pointer m-2 p-2 rounded-lg"
                   : `notshow border border-gray-300 text-center cursor-pointer m-2 p-2 rounded-lg`
               }
               onClick={(e) => {
-                
-                ansCpy[num]=answer.option;
+
+                ansCpy[num] = answer.option;
                 setAns(ansCpy);
 
                 handleQue(index);
@@ -76,15 +83,7 @@ console.log("data",data)
           ))}
         </ol>
         <div className="mt-3 ml-80 pl-48">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-1"
-            onClick={() => {
-              setNum(num + 1);
-              setDisable(null);
-            }}
-          >
-            Skip
-          </button>
+          
           {btnshow ? (
             <Link to="/showallanswer">
               {" "}
@@ -100,7 +99,7 @@ console.log("data",data)
                   dispatch(postQuizResult(obj));
                 }}
               >
-                Result
+                Final Submit
               </button>
             </Link>
           ) : (
@@ -114,7 +113,7 @@ console.log("data",data)
                 }
               }}
             >
-              Submit
+              Next
             </button>
           )}
         </div>

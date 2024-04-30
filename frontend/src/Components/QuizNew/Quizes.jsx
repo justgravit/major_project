@@ -13,6 +13,8 @@ export const Quizes = () => {
   const [isLoading, setLoading] = useState(true);
   const questionArr = singleQuiz[0]?.questionArray;
   const [num, setNum] = useState(0);
+  const [sel_idx, set_idx] = useState([]);
+
   useEffect(() => {
     dispatch(getQuiz(params));
   }, []);
@@ -29,10 +31,11 @@ export const Quizes = () => {
         src="https://embed.lottiefiles.com/animation/9844"
       ></iframe>
     </div>
-  ) : (   
+  ) : (
     <>
-    <Quiz questionArr={questionArr}  num={num} setNum={setNum} />
-    { questionArr && <QuizNavigate questionArr={questionArr} num={num} setNum={setNum} />}
+      <Quiz questionArr={questionArr} num={num} setNum={setNum} sel_idx={sel_idx} set_idx={set_idx} />
+      {questionArr && <QuizNavigate questionArr={questionArr} num={num} setNum={setNum} sel_idx={sel_idx} set_idx={set_idx} />}
     </>
   );
 };
+
