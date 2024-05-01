@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "postcss-nesting": "^12.1.2"
+  }
+}
