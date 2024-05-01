@@ -96,13 +96,13 @@ export const Quiz = ({ questionArr, num, setNum , set_idx, sel_idx}) => {
             </li>
           ))}
         </ol>
-        <div className="mt-3 ml-80 pl-48">
+        <div className="grid mt-3 pb-40 items-center">
           
           {(num===questionArr.length-1) ? (
             <Link to="/showallanswer">
               {" "}
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded mr-1"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded"
                 onClick={() => {
                   dispatch(postUserResult(ans));
                   const obj = {
@@ -118,7 +118,7 @@ export const Quiz = ({ questionArr, num, setNum , set_idx, sel_idx}) => {
             </Link>
           ) : (
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded mr-1"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded"
               onClick={() => {
                 setNum(num + 1);
               }}

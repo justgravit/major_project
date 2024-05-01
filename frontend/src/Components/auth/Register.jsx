@@ -79,17 +79,17 @@ export const Register = () => {
           placeholder="Re-enter Password"
           onChange={handleChange}
         ></input>
-        <button
-          className="p-2 pl-24 pr-24 clicabledivRegsiter bg-blue-500 h-10 rounded-md text-white  text-xl "
+        <div
+          className="p-2 pl-24 pr-24 clicablediv bg-blue-500 hover:bg-blue-800 h-10 rounded-md text-white  text-xl "
           onClick={register}
         >
           Register
-        </button>
+        </div>
         <ToastContainer />
         <div>OR</div>
         <Link to="/login">
           {" "}
-          <div className="p-2 pl-36 pr-28 clicablediv bg-blue-500 h-10 rounded-md text-white  text-xl ">
+          <div className="p-2 pl-24 pr-24 clicablediv bg-blue-500 hover:bg-blue-800 h-10 rounded-md text-white  text-xl ">
             Login
           </div>{" "}
         </Link>

@@ -62,7 +62,7 @@ export const Resultshow = () => {
         </div>
       </div>
 
-      <div className=" absolute  bg-blue-300 rounded-2xl right-24 top-28 border-2 mb-8 p-2 pl-4  pr-4 ">
+      <div className=" absolute  bg-blue-300 hover:bg-blue-400  rounded-2xl right-24 top-28 border-2 mb-8 p-2 pl-4  pr-4 ">
         <Link to="/">
           <button className="text-xl font-bold ">Attempt More Quiz</button>
         </Link>

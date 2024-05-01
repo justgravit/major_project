@@ -56,7 +56,7 @@ export const ShowAllAnswers = () => {
           })}
         </div>
       </div>
-      <div className=" w-36  border-2 p-1 pl-2 text-center  pr-2 bg-teal-400  finalresult ">
+      <div className=" w-36  border-2 p-1 pl-2 text-center  pr-2 bg-teal-400 hover:bg-teal-500 finalresult ">
         <Link to="/result">
           <button className="text-xl  font-bold">Final Marks</button>
         </Link>

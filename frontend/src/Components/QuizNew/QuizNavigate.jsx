@@ -4,7 +4,7 @@ function QuizNavigate({ questionArr, setNum, set_idx, sel_idx }) {
   console.log("ww", questionArr);
 
   return (
-    <div class="bg-gray-200 p-2 flex flex-wrap justify-center">
+    <div class="bg-gray-200 p-2 flex flex-wrap justify-center m-10">
 
       {
         questionArr.map((curQ, idx) => {
@@ -13,11 +13,11 @@ function QuizNavigate({ questionArr, setNum, set_idx, sel_idx }) {
               <button className='' onClick={() => {
                 setNum(idx);
               }}>
-                {sel_idx[idx] !== 'NA' ? <div className="bg-green-400 box-border h-10 w-10  border border-black flex items-center justify-center font-bold rounded-md" >
+                {sel_idx[idx] !== 'NA' ? <div className="bg-green-400 hover:bg-green-300 box-border h-10 w-10  border border-black flex items-center justify-center font-bold rounded-md" >
                   {idx + 1}
                 </div>
                   :
-                  <div className="bg-white box-border h-10 w-10  border border-black flex items-center justify-center rounded-md" >
+                  <div className="bg-white hover:bg-grey-50 box-border h-10 w-10  border border-black flex items-center justify-center rounded-md" >
                     {idx + 1}
                   </div>}
               </button>

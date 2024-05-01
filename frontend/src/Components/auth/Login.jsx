@@ -34,7 +34,7 @@ export const Login = () => {
     axios
       .post(`${local_url}/login`, user)
       .then((res) => {
-        if (res.data.user.email == "garvit@usa.com") {
+        if (res.data.user.email === "garvit@usa.com") {
           dispatch(loginAdminId(res.data.user._id));
           dispatch(loginAdminName(res.data.user.name));
           toast(`Welcome Admin ${res.data.user.name}`, {
@@ -91,7 +91,7 @@ export const Login = () => {
             onClick={() => {
               login();
             }}
-            className="p-2 pl-28 pr-28 bg-blue-500 h-10 rounded-md text-white  text-xl "
+            className="p-2 pl-28 pr-28 bg-blue-500 hover:bg-blue-800 h-10 rounded-md text-white  text-xl "
           >
             Login
           </button>
@@ -100,7 +100,7 @@ export const Login = () => {
         <div>OR</div>
         <Link to="/register">
           {" "}
-          <button className="p-2 pl-28 pr-24 bg-blue-500 h-10 rounded-md text-white  text-xl ">
+          <button className="p-2 pl-28 pr-24 bg-blue-500 hover:bg-blue-800 h-10 rounded-md text-white  text-xl ">
             Register
           </button>{" "}
         </Link>
