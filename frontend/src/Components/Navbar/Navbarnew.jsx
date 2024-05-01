@@ -18,7 +18,7 @@ export const Navbarnew = () => {
         type: "success",
       });
     }
-    if (adminName == "adminbhai") {
+    if (adminName === "adminbhai") {
       toast(`Admin Successfully Logout `, {
         type: "success",
       });
