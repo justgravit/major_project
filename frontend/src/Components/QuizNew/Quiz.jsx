@@ -10,7 +10,7 @@ export const Quiz = ({ questionArr, num, setNum , set_idx, sel_idx}) => {
 
   const qsnSize = questionArr.length;
   const data = useSelector((state) => state?.mernQuize?.QuizData);
-  const result = useSelector((state) => state?.mernQuize?.result);
+  //const result = useSelector((state) => state?.mernQuize?.result);
   const userID = useSelector((state) => state?.mernQuize?.userId);
   console.log("data", data)
   const quizID = data[0]._id;
@@ -18,23 +18,27 @@ export const Quiz = ({ questionArr, num, setNum , set_idx, sel_idx}) => {
   
 
   const [ans, setAns] = useState([]);
-  const [btnshow, setBtnshow] = useState(false);
-  const [disable, setDisable] = useState(null);
-  let ansCpy = [];
-  let idxcpy = [];
+
+  const [flag, setFlag] = useState(false);
+  
+  var ansCpy;
+  var idxcpy;
 
   useEffect(() => {
+    ansCpy=[];
+    idxcpy=[];
     for (let i = 0; i < qsnSize; i++) {
       ansCpy.push('NA');
       idxcpy.push('NA');
     }
+    setAns(ansCpy);
     set_idx(idxcpy);
   }, []);
 
+ 
   const handleQue = (index) => {
-    idxcpy = sel_idx;
-    idxcpy[num] = index;
-    set_idx(idxcpy);
+ 
+  
   };
 
   return (
@@ -61,30 +65,40 @@ export const Quiz = ({ questionArr, num, setNum , set_idx, sel_idx}) => {
             {/* {num + "/" + (questionArr.length)} */}
           </div>
         </div>
-        <ol className=" w-3/5 ml-64" disabled={disable}>
+        <ol className=" w-3/5 ml-64">
           {questionArr[num]?.options?.map((answer, index) => (
             <li
               key={index}
               className={
-                sel_idx[num] != 'NA' && index == sel_idx[num]
+                ((sel_idx[num] !== 'NA') && (index === sel_idx[num]))
                   ? "show border border-gray-300 text-center cursor-pointer m-2 p-2 rounded-lg"
                   : `notshow border border-gray-300 text-center cursor-pointer m-2 p-2 rounded-lg`
               }
               onClick={(e) => {
-
+                
+                idxcpy = sel_idx;
+                idxcpy[num] = index;
+                set_idx(idxcpy);
+                
+                console.log(sel_idx,"test");
+                console.log(index,"indexxxx");
+                ansCpy=ans;
                 ansCpy[num] = answer.option;
                 setAns(ansCpy);
+                setFlag(!flag);
 
-                handleQue(index);
+
+                
               }}
             >
-              {answer.option}
+              {answer.option} 
+              {/* {sel_idx[num]} {index} */}
             </li>
           ))}
         </ol>
         <div className="mt-3 ml-80 pl-48">
           
-          {btnshow ? (
+          {(num===questionArr.length-1) ? (
             <Link to="/showallanswer">
               {" "}
               <button
@@ -107,10 +121,6 @@ export const Quiz = ({ questionArr, num, setNum , set_idx, sel_idx}) => {
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded mr-1"
               onClick={() => {
                 setNum(num + 1);
-                setDisable(null);
-                if (questionArr.length - 2 == num) {
-                  setBtnshow(true);
-                }
               }}
             >
               Next

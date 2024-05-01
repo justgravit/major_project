@@ -21,7 +21,7 @@ export const Resultshow = () => {
 
   for (let i = 0; i < originalResult.length; i++) {
     for (let j = 0; j < resultUser.length; j++) {
-      if (resultUser[j]!='NA' && resultUser[j] == originalResult[i]) {
+      if (resultUser[j] == originalResult[i]) {
         count++;
       }
     }
