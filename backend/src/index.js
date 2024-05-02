@@ -28,6 +28,8 @@ app.use("/user",user)
 const userResult=require("./controller/userData.controller.js")
 app.use("/userResult",userResult)
 
+app.use("/api",userResult)
+
 app.listen(Port,async function(){
     try {
         await connect();

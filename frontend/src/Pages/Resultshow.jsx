@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { local_url } from "../constant.js";
 
 export const Resultshow = () => {
   let [count, setCount] = useState(0);
   let [feedback, setFeedback] = useState("");
   const UserName = useSelector((state) => state.mernQuize.userName);
   const resultUser = useSelector((state) => state.mernQuize.result);
+  const userId = useSelector((state) => state.mernQuize.userId);
+
+  console.log(userId);
 
   let originalResult = [];
   const singleQuiz = useSelector((state) => state?.mernQuize.QuizData);
@@ -19,13 +23,37 @@ export const Resultshow = () => {
   };
   filterAtualAnswer(questionArr);
 
-  for (let i = 0; i < originalResult.length; i++) {
-    for (let j = 0; j < resultUser.length; j++) {
-      if (resultUser[j] == originalResult[i]) {
-        count++;
+
+  const saveScore = async () => {
+
+    for (let i = 0; i < originalResult.length; i++) {
+      for (let j = 0; j < resultUser.length; j++) {
+        if (resultUser[j] == originalResult[i]) {
+          count++;
+        }
       }
     }
+    const savetodb = async () => {
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+
+        },
+        body: JSON.stringify({ score: count })
+      };
+
+      fetch(`${local_url}/api/saveScore/${userId}`, options)
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
+    }
+    await savetodb();
+
   }
+
+
+
 
   const calcPercent = () => {
     const percentage = Math.round((count / resultUser.length) * 100);
@@ -42,8 +70,13 @@ export const Resultshow = () => {
     }
 
   };
+
+  saveScore();
+
+
   useEffect(() => {
     calcPercent();
+
   });
   return (
     <div className=" w-11/12 shadow-2xl ml-16  mt-24">
