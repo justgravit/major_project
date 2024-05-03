@@ -41,6 +41,7 @@ export const Navbarnew = () => {
         />
         {/* <img src="./questionfront.gif" alt="" className="" /> */}
       </Link>
+    
 
       <div className="w-2/5 ml-14 ">
         <img className="w-96 h-24" src="./MERN2.png" alt="" />

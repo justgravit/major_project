@@ -30,13 +30,11 @@ router.post("/saveScore/:id", async (req, res) => {
     const data = await User.findByIdAndUpdate(
       req.params.id,
       {
-        
-         Points:score,
-      
+        Points:score,
       },
       { new: true }
     );
-    console.log(score);
+    //console.log(score);
     res.status(200).json("Data Pushed");
   } catch (err) {
     res.status(400).json(err);

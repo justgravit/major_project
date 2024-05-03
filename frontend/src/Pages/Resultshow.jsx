@@ -10,7 +10,7 @@ export const Resultshow = () => {
   const resultUser = useSelector((state) => state.mernQuize.result);
   const userId = useSelector((state) => state.mernQuize.userId);
 
-  console.log(userId);
+
 
   let originalResult = [];
   const singleQuiz = useSelector((state) => state?.mernQuize.QuizData);

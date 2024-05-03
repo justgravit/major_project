@@ -106,7 +106,7 @@ export const Footer = () => {
         </div>
       </div>
       <p className="text-white text-center mt-4 pb-4">
-        Quiz Web App By JET & Git.
+        ©Department of CSE, UIT-RGPV, Bhopal
       </p>
     </div>
   );
