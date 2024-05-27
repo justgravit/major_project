@@ -31,15 +31,7 @@ export const UserdetailForAdmin = (props) => {
               <div className="dark:bg-gray-800 ">
                 <li class="flex flex-row ">
                   <div class="select-none cursor-pointer  flex flex-1 items-center p-4 ">
-                    <div class="flex flex-col w-10 h-10 justify-center items-center mr-4">
-                      <a href="#" class="block relative">
-                        <img
-                          alt="profil"
-                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8czzbrLzXJ9R_uhKyMiwj1iGxKhJtH7pwlQ&usqp=CAU"
-                          class="mx-auto object-cover rounded-full h-10 w-10"
-                        />
-                      </a>
-                    </div>
+                    
                     <div class="flex-1 pl-1">
                       <div class="font-medium dark:text-white">{e.name}, {e.Points}</div>
                       <div class="text-gray-600 dark:text-gray-200 text-sm">

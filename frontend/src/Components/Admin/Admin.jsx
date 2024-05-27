@@ -35,7 +35,7 @@ export const Admin = () => {
               className="title text-4xl font-semibold flex text-black pb-6 mt-8 ml-32"
               style={{ fontFamily: "Quicksand" }}
             >
-              Hi Admin,
+              Hi,
               <h1
                 className="title text-4xl font-semibold  text-sky-500 pb-4 ml-2 mt-0"
                 style={{ fontFamily: "Quicksand" }}

@@ -128,12 +128,7 @@ export const Quiz = ({ questionArr, num, setNum, set_idx, sel_idx }) => {
   return (
     <div className=" w-11/12 h-96 pt-5 mt-16 bg-white">
       <div className="w-full shadow-lg  m-4 p-4 ml-12">
-        <div className="flex justify-between align-middle">
-          <div className="w-24  h-16">
-            {/* <img  className="w-full h-full" src="./questionpages.gif" alt="think"/> */}
-            <iframe src="https://embed.lottiefiles.com/animation/103649"></iframe>
-            {/* <video className="w-full" src="./businessanalysis.mp4" /> */}
-          </div>
+        <div className="flex justify-between align-middle">       
           <div className="flex w-4/5 pl-24 ml-12">
             <h1 className="text-2xl m-2 text-black-400/25">{num + 1}</h1>
             <h1 className="text-2xl m-2 text-black-400/25">
@@ -172,8 +167,7 @@ export const Quiz = ({ questionArr, num, setNum, set_idx, sel_idx }) => {
                 idxcpy[num] = index;
                 set_idx(idxcpy);
 
-                console.log(sel_idx, "test");
-                console.log(index, "indexxxx");
+                
                 ansCpy = ans;
                 ansCpy[num] = answer.option;
                 setAns(ansCpy);

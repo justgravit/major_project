@@ -25,11 +25,10 @@ export const Quizes = () => {
     }, 4000);
   }, []);
   return isLoading ? (
-    <div>
-      <iframe
-        className="w-4/5 h-96 ml-40"
-        src="https://embed.lottiefiles.com/animation/9844"
-      ></iframe>
+    <div className=" w-11/12 h-96 pt-5 mt-16 bg-white">
+      <div className="w-full shadow-lg  m-4 p-4 ml-12">
+        <h1 className="text-xl text-center font-bold">Please Wait.... The Quiz is being loaded.</h1>
+      </div>
     </div>
   ) : (
     <>
